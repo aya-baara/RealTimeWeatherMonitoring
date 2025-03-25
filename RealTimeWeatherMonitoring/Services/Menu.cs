@@ -11,7 +11,7 @@ class Menu
 
     public void SetUp()
     {
-        weatherMonitor = new WeatherMonitor(WeatherBotFactory.CreateBotsConfig(@"C:\Users\hp\source\repos\RealTimeWeatherMonitoring\RealTimeWeatherMonitoring\BotsConfig.json"));
+        weatherMonitor = new WeatherMonitor(WeatherBotFactory.CreateBotsConfig( FilePaths.configFilePath));
     }
     public Menu()
     {
