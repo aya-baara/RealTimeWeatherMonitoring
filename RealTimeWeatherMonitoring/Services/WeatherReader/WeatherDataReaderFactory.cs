@@ -1,4 +1,5 @@
 ﻿using RealTimeWeatherMonitoring.Interfaces;
+using RealTimeWeatherMonitoring.Services.WeatherReader;
 
 namespace RealTimeWeatherMonitoring.Services;
 class WeatherDataReaderFactory
