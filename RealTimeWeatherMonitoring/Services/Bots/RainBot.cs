@@ -6,6 +6,8 @@ class RainBot : IWeatherBot
 {
     private BotConfig _botConfig;
 
+    public RainBot() { }
+
     public RainBot(BotConfig botConfig)
     {
         _botConfig = botConfig;

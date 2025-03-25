@@ -6,6 +6,8 @@ class SunBot : IWeatherBot
 {
     private BotConfig _botConfig;
 
+    public SunBot() { }
+
     public SunBot(BotConfig botConfig)
     {
         _botConfig = botConfig;
