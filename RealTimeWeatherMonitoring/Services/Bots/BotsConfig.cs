@@ -13,10 +13,10 @@ class BotsConfig
         botsConfig.TryGetValue(WeatherBots.RainBot, out BotConfig rainConfig);
         RainBot = new RainBot(rainConfig!);
 
-        botsConfig.TryGetValue(WeatherBots.RainBot, out BotConfig snowConfig);
+        botsConfig.TryGetValue(WeatherBots.SnowBot, out BotConfig snowConfig);
         SnowBot = new SnowBot(snowConfig!);
 
-        botsConfig.TryGetValue(WeatherBots.RainBot, out BotConfig sunConfig);
+        botsConfig.TryGetValue(WeatherBots.SunBot, out BotConfig sunConfig);
         SunBot = new SunBot(sunConfig!);
 
 
