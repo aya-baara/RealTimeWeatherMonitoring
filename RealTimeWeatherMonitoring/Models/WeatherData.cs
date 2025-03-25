@@ -1,15 +1,21 @@
-﻿namespace RealTimeWeatherMonitoring.Models;
-class WeatherData
-{
-    public string Location { get; set; }
-    public double Temperature { get; set; }
-    public double Humidity { get; set; }
+﻿using System.Diagnostics.CodeAnalysis;
 
-    public WeatherData (string location, double temperature, double humidity)
+namespace RealTimeWeatherMonitoring.Models;
+public class WeatherData
+{
+    public required string Location { get; set; }
+    public required double Temperature { get; set; }
+    public required double Humidity { get; set; }
+
+    [SetsRequiredMembers]
+    public WeatherData(string location, double temperature, double humidity)
     {
         Location = location;
         Temperature = temperature;
         Humidity = humidity;
     }
+
+    //XmlSerializer needs a parameterless constructor
+    public WeatherData() { }
 }
 
