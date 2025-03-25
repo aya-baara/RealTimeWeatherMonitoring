@@ -29,7 +29,7 @@ class WeatherMonitor : IWeatherMonitor
     {
         foreach (var bot in _weatherBots)
         {
-            bot.Update(CurrentWeatherData);
+            BotResponseHandler.HandleBotResponse(bot.Update(CurrentWeatherData));
         }
     }
 
