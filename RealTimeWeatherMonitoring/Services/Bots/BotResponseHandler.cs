@@ -1,11 +1,13 @@
-﻿namespace RealTimeWeatherMonitoring.Services.Bots;
+﻿using RealTimeWeatherMonitoring.Models;
+
+namespace RealTimeWeatherMonitoring.Services.Bots;
 class BotResponseHandler
 {
-    public static void HandleBotResponse((bool, string) response)
+    public static void HandleBotResponse(BotResponse response)
     {
-        if (response.Item1)
+        if (response.IsActivated)
         {
-            Console.WriteLine(response.Item2);
+            Console.WriteLine(response.Message);
         }
     }
 }

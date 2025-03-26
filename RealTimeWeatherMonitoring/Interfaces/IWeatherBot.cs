@@ -3,6 +3,6 @@
 namespace RealTimeWeatherMonitoring.Interfaces;
 interface IWeatherBot
 {
-    public (bool, string) Update(WeatherData weatherData);
+    public BotResponse Update(WeatherData weatherData);
 }
 

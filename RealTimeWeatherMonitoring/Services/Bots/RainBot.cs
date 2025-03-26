@@ -12,13 +12,13 @@ class RainBot : IWeatherBot
     {
         _botConfig = botConfig;
     }
-    public (bool, string) Update(WeatherData weatherData)
+    public BotResponse Update(WeatherData weatherData)
     {
         if (_botConfig.Enabled && weatherData.Humidity > _botConfig.Threshold)
         {
-            return (true, _botConfig.Message);
+            return new BotResponse() { IsActivated = true, Message = _botConfig.Message };
         }
-        return (false, "");
+        return new BotResponse() { IsActivated = false, Message = "" };
     }
 }
 
