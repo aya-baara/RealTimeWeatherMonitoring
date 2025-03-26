@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 namespace RealTimeWeatherMonitoring.Services.WeatherReader;
 class XmlWeatherDataReader : IWeatherDataReader
 {
-    public WeatherData ReadWeatherData(string xmlWeatherData)
+    public WeatherData Read(string xmlWeatherData)
     {
         var serializer = new XmlSerializer(typeof(WeatherData), new XmlRootAttribute("Weather"));
         using StringReader reader = new StringReader(xmlWeatherData);

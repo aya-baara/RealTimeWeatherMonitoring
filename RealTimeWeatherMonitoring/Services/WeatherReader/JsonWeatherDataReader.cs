@@ -5,7 +5,7 @@ using System.Text.Json;
 namespace RealTimeWeatherMonitoring.Services.WeatherReader;
 class JsonWeatherDataReader : IWeatherDataReader
 {
-    public WeatherData ReadWeatherData(string jsonWeatherData)
+    public WeatherData Read(string jsonWeatherData)
     {
         return JsonSerializer.Deserialize<WeatherData>(jsonWeatherData);
     }

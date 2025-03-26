@@ -3,6 +3,6 @@
 namespace RealTimeWeatherMonitoring.Interfaces;
 interface IWeatherDataReader
 {
-    public WeatherData ReadWeatherData(string weatherData);
+    public WeatherData Read(string weatherData);
 }
 
