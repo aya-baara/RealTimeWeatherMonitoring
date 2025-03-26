@@ -6,7 +6,7 @@ namespace RealTimeWeatherMonitoring.Services.Bots;
 
 class ConfigReader
 {
-    public  Dictionary<WeatherBots, BotConfig> ReadBotsConfig(string filePath)
+    public static  Dictionary<WeatherBots, BotConfig> ReadBotsConfig(string filePath)
     {
         var result = new Dictionary<WeatherBots, BotConfig>();
 

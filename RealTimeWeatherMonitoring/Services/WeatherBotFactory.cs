@@ -5,7 +5,7 @@ class WeatherBotFactory
 {
     public static BotsConfig CreateBotsConfig(string filePath)
     {
-        var botConfigData = new ConfigReader().ReadBotsConfig(filePath);
+        var botConfigData = ConfigReader.ReadBotsConfig(filePath);
 
         return new BotsConfig(botConfigData);
     }
