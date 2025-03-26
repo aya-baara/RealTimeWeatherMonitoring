@@ -6,7 +6,15 @@ namespace RealTimeWeatherMonitoring.Services;
 class WeatherMonitor : IWeatherMonitor
 {
     private List<IWeatherBot> _weatherBots = new List<IWeatherBot>();
-    public WeatherData CurrentWeatherData { get; private set; }
+    private WeatherData _currentWeatherData;
+    private WeatherData CurrentWeatherData
+    {
+        set
+        {
+            _currentWeatherData = value;
+            Notify();
+        }
+    }
 
     public WeatherMonitor(BotsConfig botsConfig)
     {
@@ -24,19 +32,19 @@ class WeatherMonitor : IWeatherMonitor
     {
         _weatherBots.Remove(bot);
     }
-
-    public void Notify()
+    
+    public void Notify( )
     {
         foreach (var bot in _weatherBots)
         {
-            BotResponseHandler.HandleBotResponse(bot.Update(CurrentWeatherData));
+            BotResponseHandler.HandleBotResponse(bot.Update(_currentWeatherData));
         }
     }
 
     public void UpdateWeather(WeatherData weatherData)
     {
         CurrentWeatherData = weatherData;
-        Notify();
+   
     }
 }
 
