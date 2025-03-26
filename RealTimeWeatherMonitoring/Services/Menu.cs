@@ -6,16 +6,12 @@ using RealTimeWeatherMonitoring.Services.WeatherReader;
 namespace RealTimeWeatherMonitoring.Services;
 class Menu
 {
-    private IWeatherDataReader weatherDataReader;
-    private WeatherMonitor weatherMonitor;
+    private IWeatherDataReader _weatherDataReader;
+    private IWeatherMonitor _weatherMonitor;
 
-    public void SetUp()
+    public Menu(IWeatherMonitor weatherMonitor)
     {
-        weatherMonitor = new WeatherMonitor(WeatherBotFactory.CreateBotsConfig( FilePaths.configFilePath));
-    }
-    public Menu()
-    {
-        SetUp();
+        _weatherMonitor = weatherMonitor;
         DisplayMenu();
     }
     public void DisplayMenu()
@@ -58,9 +54,9 @@ class Menu
         string weatherDataInput = Console.ReadLine();
         try
         {
-            weatherDataReader = WeatherDataReaderFactory.GetReader(weatherDataInput);
-            WeatherData inputWeatherData = weatherDataReader.ReadWeatherData(weatherDataInput);
-            weatherMonitor.UpdateWeather(inputWeatherData);
+            _weatherDataReader = WeatherDataReaderFactory.GetReader(weatherDataInput);
+            WeatherData inputWeatherData = _weatherDataReader.Read(weatherDataInput);
+            _weatherMonitor.UpdateWeather(inputWeatherData);
         }
         catch (Exception e)
         {
