@@ -18,9 +18,7 @@ class WeatherMonitor : IWeatherMonitor
 
     public WeatherMonitor(BotsConfig botsConfig)
     {
-        _weatherBots.Add(botsConfig.SnowBot);
-        _weatherBots.Add(botsConfig.RainBot);
-        _weatherBots.Add(botsConfig.SunBot);
+        _weatherBots = (List<IWeatherBot>)botsConfig.WeatherBots;
 
     }
     public void Attach(IWeatherBot bot)
