@@ -3,20 +3,15 @@
 namespace RealTimeWeatherMonitoring.Services.WeatherReader;
 class WeatherDataReaderFactory
 {
-    public static IWeatherDataReader GetReader(string s)
+    public static IWeatherDataReader GetReader(string wethearDataInput)
     {
-        if (s.StartsWith("{"))
-        {
+        if (wethearDataInput.StartsWith("{"))
             return new JsonWeatherDataReader();
 
-        }
-        else if (s.StartsWith("<"))
-        {
+        if (wethearDataInput.StartsWith("<"))
             return new XmlWeatherDataReader();
-        }
-        else
-        {
-            throw new Exception("Unsupported weather data format.");
-        }
+
+        throw new Exception("Unsupported weather data format.");
+
     }
 }
