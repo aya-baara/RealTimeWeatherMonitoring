@@ -1,6 +1,18 @@
-﻿namespace RealTimeWeatherMonitoring;
-class FilePaths
-{
-    public const string configFilePath = @"C:\Users\hp\source\repos\RealTimeWeatherMonitoring\RealTimeWeatherMonitoring\BotsConfig.json";
-}
+﻿using Microsoft.Extensions.Configuration;
+
+namespace RealTimeWeatherMonitoring;
+    class FilePaths
+    {
+        public static string ConfigFilePath { get; private set; }
+
+        public static void LoadConfiguration()
+        {
+            var configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .Build();
+
+            ConfigFilePath = configuration["FilePaths:ConfigFilePath"];
+        }
+    }
+
 
