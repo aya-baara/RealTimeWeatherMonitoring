@@ -30,8 +30,8 @@ class WeatherMonitor : IWeatherMonitor
     {
         _weatherBots.Remove(bot);
     }
-    
-    public void Notify( )
+
+    public void Notify()
     {
         foreach (var bot in _weatherBots)
         {
@@ -42,7 +42,7 @@ class WeatherMonitor : IWeatherMonitor
     public void UpdateWeather(WeatherData weatherData)
     {
         CurrentWeatherData = weatherData;
-   
+
     }
 }
 
