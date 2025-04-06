@@ -1,25 +1,15 @@
-﻿using RealTimeWeatherMonitoring.Interfaces;
-using RealTimeWeatherMonitoring.Models;
+﻿using RealTimeWeatherMonitoring.Models;
 
 namespace RealTimeWeatherMonitoring.Services.Bots;
-class SnowBot : IWeatherBot
+class SnowBot : WeatherBot
 {
-    private BotConfig _botConfig;
+    public SnowBot() : base() { }
 
-    public SnowBot() { }
+    public SnowBot(BotConfig botConfig) : base(botConfig) { }
 
-    public SnowBot(BotConfig botConfig)
+    protected override bool IsSatisfyBotCondition(WeatherData weatherData)
     {
-        _botConfig = botConfig;
-    }
-
-    public BotResponse Update(WeatherData weatherData)
-    {
-        if (_botConfig.Enabled && weatherData.Temperature < _botConfig.Threshold)
-        {
-            return new BotResponse() { IsActivated = true, Message = _botConfig.Message };
-        }
-        return new BotResponse() { IsActivated = false, Message = "" };
+        return weatherData.Temperature < _botConfig.Threshold;
     }
 }
 

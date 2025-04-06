@@ -2,24 +2,15 @@
 using RealTimeWeatherMonitoring.Models;
 
 namespace RealTimeWeatherMonitoring.Services.Bots;
-class SunBot : IWeatherBot
+class SunBot : WeatherBot
 {
-    private BotConfig _botConfig;
+    public SunBot() : base() { }
 
-    public SunBot() { }
+    public SunBot(BotConfig botConfig) : base(botConfig) { }
 
-    public SunBot(BotConfig botConfig)
+    protected override bool IsSatisfyBotCondition(WeatherData weatherData)
     {
-        _botConfig = botConfig;
-    }
-
-    public BotResponse Update(WeatherData weatherData)
-    {
-        if (_botConfig.Enabled && weatherData.Temperature > _botConfig.Threshold)
-        {
-            return new BotResponse() { IsActivated = true, Message = _botConfig.Message };
-        }
-        return new BotResponse() { IsActivated = false, Message = "" };
+        return weatherData.Temperature > _botConfig.Threshold;
     }
 }
 

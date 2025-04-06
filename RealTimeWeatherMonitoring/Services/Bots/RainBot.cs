@@ -1,24 +1,16 @@
-﻿using RealTimeWeatherMonitoring.Interfaces;
-using RealTimeWeatherMonitoring.Models;
+﻿using RealTimeWeatherMonitoring.Models;
 
 namespace RealTimeWeatherMonitoring.Services.Bots;
-class RainBot : IWeatherBot
+class RainBot : WeatherBot
 {
-    private BotConfig _botConfig;
+    public RainBot() : base() { }
 
-    public RainBot() { }
+    public RainBot(BotConfig botConfig) : base(botConfig) { }
 
-    public RainBot(BotConfig botConfig)
+    protected override bool IsSatisfyBotCondition(WeatherData weatherData)
     {
-        _botConfig = botConfig;
+        return weatherData.Humidity > _botConfig.Threshold;
     }
-    public BotResponse Update(WeatherData weatherData)
-    {
-        if (_botConfig.Enabled && weatherData.Humidity > _botConfig.Threshold)
-        {
-            return new BotResponse() { IsActivated = true, Message = _botConfig.Message };
-        }
-        return new BotResponse() { IsActivated = false, Message = "" };
-    }
+  
 }
 
