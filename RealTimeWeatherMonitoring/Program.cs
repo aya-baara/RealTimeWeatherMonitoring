@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using RealTimeWeatherMonitoring;
+using RealTimeWeatherMonitoring.Services;
+using RealTimeWeatherMonitoring.Services.Bots;
+
+FilePaths.LoadConfiguration();
+Menu menu = new Menu(new WeatherMonitor(new BotsConfig()));
+
+
+
