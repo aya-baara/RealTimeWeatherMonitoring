@@ -1,7 +1,7 @@
 ﻿using RealTimeWeatherMonitoring.Interfaces;
 
 namespace RealTimeWeatherMonitoring.Services.WeatherReader;
-class WeatherDataReaderFactory
+public class WeatherDataReaderFactory
 {
     public static IWeatherDataReader GetReader(string wethearDataInput)
     {

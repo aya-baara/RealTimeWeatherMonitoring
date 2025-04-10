@@ -1,7 +1,7 @@
 ﻿using RealTimeWeatherMonitoring.Models;
 
 namespace RealTimeWeatherMonitoring.Interfaces;
-interface IWeatherDataReader
+public interface IWeatherDataReader
 {
     public WeatherData Read(string weatherData);
 }

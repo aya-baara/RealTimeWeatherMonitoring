@@ -3,7 +3,7 @@ using RealTimeWeatherMonitoring.Models;
 using System.Xml.Serialization;
 
 namespace RealTimeWeatherMonitoring.Services.WeatherReader;
-class XmlWeatherDataReader : IWeatherDataReader
+public class XmlWeatherDataReader : IWeatherDataReader
 {
     public WeatherData Read(string xmlWeatherData)
     {
