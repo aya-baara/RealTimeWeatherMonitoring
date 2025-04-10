@@ -30,11 +30,12 @@ namespace RealTimeWeatherMonitoringTesting.BotsTesting
         {
             var fixture = new Fixture();
 
-            BotConfig botConfig = fixture.Build<BotConfig>().With(b => b.Enabled, enabled).Create();
+            BotConfig botConfig = fixture.Build<BotConfig>().With(b => b.Enabled, enabled).With(b => b.Threshold, 40).Create();
             TestableRainBot rainBot = new TestableRainBot(botConfig);
 
-            WeatherData weather = fixture.Create<WeatherData>();
-            var response= rainBot.Update(weather);
+            WeatherData weather = fixture.Build<WeatherData>().With(b => b.Humidity, 50).Create();
+
+            var response = rainBot.Update(weather);
             Assert.Equal(expected, response.IsActivated);
 
 
