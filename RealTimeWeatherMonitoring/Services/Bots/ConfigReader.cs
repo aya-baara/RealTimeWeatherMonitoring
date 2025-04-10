@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace RealTimeWeatherMonitoring.Services.Bots;
 
-class ConfigReader
+public class ConfigReader
 {
     public static  Dictionary<WeatherBots, BotConfig> ReadBotsConfig(string filePath)
     {

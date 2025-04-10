@@ -2,7 +2,7 @@
 using RealTimeWeatherMonitoring.Models;
 
 namespace RealTimeWeatherMonitoring.Services.Bots;
-class BotsConfig
+public class BotsConfig
 {
     public IReadOnlyList<IWeatherBot> WeatherBots { get; private set; }
 
