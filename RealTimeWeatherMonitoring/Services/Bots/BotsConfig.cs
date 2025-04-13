@@ -18,6 +18,10 @@ public class BotsConfig
         }
 
     }
+    public BotsConfig (List<IWeatherBot> weatherBots)
+    {
+        WeatherBots = weatherBots;
+    }
 
 
 }
