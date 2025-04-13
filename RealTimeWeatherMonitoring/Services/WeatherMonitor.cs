@@ -3,7 +3,7 @@ using RealTimeWeatherMonitoring.Models;
 using RealTimeWeatherMonitoring.Services.Bots;
 
 namespace RealTimeWeatherMonitoring.Services;
-class WeatherMonitor : IWeatherMonitor
+public class WeatherMonitor : IWeatherMonitor
 {
     private List<IWeatherBot> _weatherBots = new List<IWeatherBot>();
     private WeatherData _currentWeatherData;
