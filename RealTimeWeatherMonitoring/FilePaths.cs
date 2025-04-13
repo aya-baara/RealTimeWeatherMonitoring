@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 
 namespace RealTimeWeatherMonitoring;
-    class FilePaths
-    {
+public class FilePaths
+{
         public static string ConfigFilePath { get; private set; }
 
         public static void LoadConfiguration()
@@ -13,6 +13,6 @@ namespace RealTimeWeatherMonitoring;
 
             ConfigFilePath = configuration["FilePaths:ConfigFilePath"];
         }
-    }
+}
 
 
