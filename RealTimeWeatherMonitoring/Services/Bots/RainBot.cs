@@ -1,7 +1,7 @@
 ﻿using RealTimeWeatherMonitoring.Models;
 
 namespace RealTimeWeatherMonitoring.Services.Bots;
-class RainBot : WeatherBot
+public class RainBot : WeatherBot
 {
     public RainBot() : base() { }
 

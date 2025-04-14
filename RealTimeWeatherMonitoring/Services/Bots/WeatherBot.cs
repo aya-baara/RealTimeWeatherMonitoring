@@ -2,7 +2,7 @@
 using RealTimeWeatherMonitoring.Models;
 
 namespace RealTimeWeatherMonitoring.Services.Bots;
- abstract class WeatherBot : IWeatherBot
+ public abstract class WeatherBot : IWeatherBot
 {
     protected BotConfig _botConfig;
 

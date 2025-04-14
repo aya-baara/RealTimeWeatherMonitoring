@@ -3,7 +3,7 @@ using RealTimeWeatherMonitoring.Services;
 using RealTimeWeatherMonitoring.Services.Bots;
 
 FilePaths.LoadConfiguration();
-Menu menu = new Menu(new WeatherMonitor(new BotsConfig()));
+Menu menu = new Menu(new WeatherMonitor(new BotsConfig(ConfigReader.ReadBotsConfig(FilePaths.ConfigFilePath))));
 
 
 

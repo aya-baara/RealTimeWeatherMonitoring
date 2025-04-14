@@ -3,7 +3,7 @@ using RealTimeWeatherMonitoring.Models;
 using System.Text.Json;
 
 namespace RealTimeWeatherMonitoring.Services.WeatherReader;
-class JsonWeatherDataReader : IWeatherDataReader
+public class JsonWeatherDataReader : IWeatherDataReader
 {
     public WeatherData Read(string jsonWeatherData)
     {

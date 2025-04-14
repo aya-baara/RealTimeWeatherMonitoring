@@ -2,7 +2,7 @@
 using RealTimeWeatherMonitoring.Models;
 
 namespace RealTimeWeatherMonitoring.Services.Bots;
-class SunBot : WeatherBot
+public class SunBot : WeatherBot
 {
     public SunBot() : base() { }
 
