@@ -1,10 +1,18 @@
 ﻿using RealTimeWeatherMonitoring.Models;
 using RealTimeWeatherMonitoring.Services.WeatherReader;
+using System.Reflection.PortableExecutable;
+using System.Xml;
 
 namespace RealTimeWeatherMonitoringTesting.ReadingTest;
 
 public class XmlWeatherDataReaderTest
 {
+    private readonly XmlWeatherDataReader reader;
+
+    public XmlWeatherDataReaderTest()
+    {
+        reader = new XmlWeatherDataReader();
+    }
     [Fact]
     public void Read_ValidXml_ReturnsCorrectWeatherData()
     {
@@ -13,14 +21,19 @@ public class XmlWeatherDataReaderTest
                 <Temperature>35.5</Temperature>
                 <Humidity>70</Humidity>
                 </Weather>";
-        var reader = new XmlWeatherDataReader();
-
+        
         WeatherData result = reader.Read(xml);
 
         Assert.NotNull(result);
         Assert.Equal("Palestine", result.Location);
         Assert.Equal(35.5, result.Temperature);
         Assert.Equal(70, result.Humidity);
+    }
+
+    [Fact]
+    public void Read_NotValidXml_ThrowsXmlException()
+    {
+        Assert.Throws<InvalidOperationException>(() => reader.Read("not a xml"));
     }
 }
 
