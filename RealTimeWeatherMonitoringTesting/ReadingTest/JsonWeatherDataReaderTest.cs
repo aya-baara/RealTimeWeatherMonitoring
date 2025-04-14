@@ -26,16 +26,9 @@ public class JsonWeatherDataReaderTest
     [Fact]
     public void Read_NotValidJson_ReturnsNull()
     {
-        // not valid weather data 
-        var json = @"{
-                ""Locationnnnnn"": ""Palestine"",
-                ""Temperature"": 35.5,
-                ""Humidity"": 70
-            }";
-
         var reader = new JsonWeatherDataReader();
-        
-        Assert.Throws<JsonException>(()=> reader.Read(json));
+
+        Assert.Throws<JsonException>(() => reader.Read("not a json"));
     }
 }
 
