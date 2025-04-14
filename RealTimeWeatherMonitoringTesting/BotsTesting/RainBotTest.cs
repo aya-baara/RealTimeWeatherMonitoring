@@ -7,7 +7,7 @@ namespace RealTimeWeatherMonitoringTesting.BotsTesting
     {
         private readonly Fixture fixture;
 
-        RainBotTest()
+        public RainBotTest()
         {
             fixture = new Fixture();
         }
