@@ -15,9 +15,7 @@ public class JsonWeatherDataReaderTest
             }";
 
         var reader = new JsonWeatherDataReader();
-
         WeatherData result = reader.Read(json);
-
 
         Assert.NotNull(result);
         Assert.Equal("Palestine", result.Location);
