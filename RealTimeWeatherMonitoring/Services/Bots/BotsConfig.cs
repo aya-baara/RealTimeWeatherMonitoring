@@ -6,11 +6,11 @@ public class BotsConfig
 {
     public IReadOnlyList<IWeatherBot> WeatherBots { get; private set; }
 
-    public BotsConfig()
+    public BotsConfig(Dictionary<WeatherBots, BotConfig> botsConfig)
     {
         try
         {
-            WeatherBots = WeatherBotFactory.GetBotConfigList(ConfigReader.ReadBotsConfig(FilePaths.ConfigFilePath));
+            WeatherBots = WeatherBotFactory.GetBotConfigList(botsConfig);
         }
         catch (Exception e)
         {
