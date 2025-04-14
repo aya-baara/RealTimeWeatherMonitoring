@@ -5,6 +5,13 @@ using System.Text.Json;
 namespace RealTimeWeatherMonitoringTesting.ReadingTest;
 public class JsonWeatherDataReaderTest
 {
+    private readonly JsonWeatherDataReader reader;
+
+    public JsonWeatherDataReaderTest()
+    {
+        reader = new JsonWeatherDataReader();
+
+    }
     [Fact]
     public void Read_ValidJson_ReturnsCorrectWeatherData()
     {
@@ -14,7 +21,6 @@ public class JsonWeatherDataReaderTest
                 ""Humidity"": 70
             }";
 
-        var reader = new JsonWeatherDataReader();
         WeatherData result = reader.Read(json);
 
         Assert.NotNull(result);
@@ -26,8 +32,7 @@ public class JsonWeatherDataReaderTest
     [Fact]
     public void Read_NotValidJson_ReturnsNull()
     {
-        var reader = new JsonWeatherDataReader();
-
+        
         Assert.Throws<JsonException>(() => reader.Read("not a json"));
     }
 }
