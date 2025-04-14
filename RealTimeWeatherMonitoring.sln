@@ -5,7 +5,7 @@ VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeWeatherMonitoring", "RealTimeWeatherMonitoring\RealTimeWeatherMonitoring.csproj", "{8A6DB809-F646-49AB-BD54-44377B51913A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeWeatherMonitoringTesting", "RealTimeWeatherMonitoringTesting\RealTimeWeatherMonitoringTesting.csproj", "{826845A8-2BD5-411E-816D-B9C751849A13}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeWeatherMonitoring.Tests", "RealTimeWeatherMonitoringTesting\RealTimeWeatherMonitoring.Tests.csproj", "{826845A8-2BD5-411E-816D-B9C751849A13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
