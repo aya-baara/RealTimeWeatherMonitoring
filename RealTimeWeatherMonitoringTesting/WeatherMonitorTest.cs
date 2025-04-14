@@ -28,12 +28,13 @@ public class WeatherMonitorTest
         var config = new BotsConfig(bots);
         var monitor = new WeatherMonitor(config);
 
-
         monitor.UpdateWeather(fixture.Create<WeatherData>());
 
         //Assert.
-        botMock1.Verify(bot => bot.Update(It.IsAny<WeatherData>()), Times.Once);
-        botMock2.Verify(bot => bot.Update(It.IsAny<WeatherData>()), Times.Once);
+        foreach (var botMock in new List<Mock<IWeatherBot>> { botMock1, botMock2 })
+        {
+            botMock.Verify(bot => bot.Update(It.IsAny<WeatherData>()), Times.Once);
+        }
     }
 }
 
