@@ -6,18 +6,16 @@ namespace RealTimeWeatherMonitoringTesting.ReadingTest;
 public class XmlWeatherDataReaderTest
 {
     [Fact]
-    public void Read_ValidJson_ReturnsCorrectWeatherData()
+    public void Read_ValidXml_ReturnsCorrectWeatherData()
     {
         var xml = @"<Weather>
                 <Location>Palestine</Location>
                 <Temperature>35.5</Temperature>
                 <Humidity>70</Humidity>
                 </Weather>";
-
         var reader = new XmlWeatherDataReader();
 
         WeatherData result = reader.Read(xml);
-
 
         Assert.NotNull(result);
         Assert.Equal("Palestine", result.Location);
