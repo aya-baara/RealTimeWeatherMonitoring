@@ -21,17 +21,17 @@ namespace RealTimeWeatherMonitoringTesting.BotsTesting
             TestableRainBot rainBot = new TestableRainBot(botConfig);
 
             WeatherData weather = fixture.Build<WeatherData>().With(b => b.Humidity, weatherHumidity).Create();
-            bool IsSatisfying = rainBot.CallIsSatisfyBotCondition(weather);
+            bool isSatisfying = rainBot.CallIsSatisfyBotCondition(weather);
 
-            Assert.Equal(expected, IsSatisfying);
+            Assert.Equal(expected, isSatisfying);
         }
 
         [Theory]
-        [InlineData(true, true)]
-        [InlineData(false, false)]
-        public void UpdateTest_BasedOnBotEnable(bool enabled, bool expected)
+        [InlineData(true, true,40)]
+        [InlineData(false, false,40)]
+        public void UpdateTest_BasedOnBotEnable(bool enabled, bool expected, int threshold)
         {
-            BotConfig botConfig = fixture.Build<BotConfig>().With(b => b.Enabled, enabled).With(b => b.Threshold, 40).Create();
+            BotConfig botConfig = fixture.Build<BotConfig>().With(b => b.Enabled, enabled).With(b => b.Threshold, threshold).Create();
             TestableRainBot rainBot = new TestableRainBot(botConfig);
 
             WeatherData weather = fixture.Build<WeatherData>().With(b => b.Humidity, 50).Create();
